@@ -1,0 +1,132 @@
+# Configuration options
+config defaultToCurrentScreen true
+config modalEscapeKey esc
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+config windowHintsSpreadSearchWidth 200
+config windowHintsSpreadSearchHeight 200
+
+# Easy helpers for long variable names...
+alias sox 0
+alias soy 0
+alias ssx 1920
+alias ssy 1080
+
+alias wox windowTopLeftX
+alias woy windowTopLeftY
+alias wsx windowSizeX
+alias wsy windowSizeY
+
+# Positioning aliases
+alias full move ${sox};${soy} ${ssx};${ssy}
+alias left-half move ${sox};${soy} ${ssx}/2+1;${ssy}
+alias right-half move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias top-half move ${sox};${soy} ${ssx};${ssy}/2
+alias bot-half move ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias top-left move ${sox};${soy} ${ssx}/2;${ssy}/2
+alias top-right move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bot-left move ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bot-right move ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+
+alias third-left-top move ${sox};${soy} ${ssx}/3+1;${ssy}/3+1
+alias third-left-middle move ${sox};${soy}+${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+alias third-left-botom move ${sox};${soy}+2*${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+
+
+alias third-middle-top move ${sox}+${ssx}/3+1;${soy} ${ssx}/3+1;${ssy}/3+1
+alias third-middle-middle move ${sox}+${ssx}/3+1;${soy}+${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+alias third-middle-botom move ${sox}+${ssx}/3+1;${soy}+2*${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+
+alias third-right-top move ${sox}+2*${ssx}/3+1;${soy} ${ssx}/3+1;${ssy}/3+1
+alias third-right-middle move ${sox}+2*${ssx}/3+1;${soy}+${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+alias third-right-botom move ${sox}+2*${ssx}/3+1;${soy}+2*${ssy}/3+1 ${ssx}/3+1;${ssy}/3+1
+
+alias third-left move ${sox};${soy} 2*${ssx}/3;${ssy}
+alias third-right move 2*${ssx}/3+1;${soy} ${ssx};${ssy}
+
+alias y-bigger1 move ${wox};${soy} ${wsx};${ssy}/3
+alias y-bigger2 move ${wox};${soy} ${wsx};2*${ssy}/3
+alias y-bigger3 move ${wox};${soy} ${wsx};${ssy}
+
+alias y-move1 move ${wox};${soy} ${wsx};${ssy}/3
+alias y-move2 move ${wox};${ssy}/3 ${wsx};${ssy}/3
+alias y-move3 move ${wox};2*${ssy}/3 ${wsx};${ssy}/3
+
+alias x-bigger1 move ${sox};${woy} ${ssx}/3;${wsy}
+alias x-bigger2 move ${sox};${woy} 2*${ssx}/3;${wsy}
+alias x-bigger3 move ${sox};${woy} ${ssx};${wsy}
+
+alias x-move1 move ${sox};${woy} ${ssx}/3;${wsy}
+alias x-move2 move ${ssx}/3;${woy} ${ssx}/3;${wsy}
+alias x-move3 move 2*${ssx}/3+1;${woy} ${ssx}/3;${wsy}
+
+# Some apps
+alias app-browser 'Google Chrome'
+alias app-editor 'Sublime Text'
+alias app-irc 'Adium'
+alias app-music 'iTunes'
+alias app-terminal 'iTerm'
+
+#--------------------------------------------------------------------
+# Bindings
+#--------------------------------------------------------------------
+
+
+# bind e:cmd,ctrl hint
+
+# bind g:cmd,ctrl grid padding:5 0:5,3
+
+bind u:ctrl ${third-left-top}
+bind j:ctrl ${third-left-middle}
+bind m:ctrl ${third-left-botom}
+
+bind i:ctrl ${third-middle-top}
+bind k:ctrl ${third-middle-middle}
+bind ,:ctrl ${third-middle-botom}
+
+bind o:ctrl ${third-right-top}
+bind l:ctrl ${third-right-middle}
+bind .:ctrl ${third-right-botom}
+
+
+
+bind f:ctrl ${full}
+bind g:ctrl ${third-left}
+
+#focus
+bind u:ctrl,cmd focus up
+bind j:ctrl,cmd focus down
+bind k:ctrl,cmd focus right
+bind h:ctrl,cmd focus left
+bind y:ctrl,cmd focus above
+bind i:ctrl,cmd focus above
+bind n:ctrl,cmd focus below
+bind m:ctrl,cmd focus below
+bind ,:ctrl,cmd focus below
+
+bind down:ctrl,cmd focus down
+bind left:ctrl,cmd focus left
+bind right:ctrl,cmd focus right
+bind up:ctrl,cmd focus up
+
+
+# Numpad location Bindings
+bind pad1:ctrl ${bot-left}
+bind pad2:ctrl ${bot-half}
+bind pad3:ctrl ${bot-right}
+bind pad4:ctrl ${left-half}
+bind pad5:ctrl ${full}
+bind pad6:ctrl ${right-half}
+bind pad7:ctrl ${top-left}
+bind pad8:ctrl ${top-half}
+bind pad9:ctrl ${top-right}
+
+bind down:ctrl chain ${y-move1} | ${y-move2} | ${y-move3}
+bind left:ctrl chain ${x-move1} | ${x-move2} | ${x-move3}
+bind pad0:ctrl ${full}
+bind right:ctrl chain ${x-bigger1} | ${x-bigger2} | ${x-bigger3}
+bind up:ctrl chain ${y-bigger1} | ${y-bigger2} | ${y-bigger3}
+
