@@ -46,7 +46,7 @@ plugins=(git brew bundler gem knife osx per-directory-history rails3 ruby vagran
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=:/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/local/bin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
+export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
 
 export EDITOR='sb'
 
