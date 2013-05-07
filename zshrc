@@ -51,3 +51,6 @@ export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:
 export EDITOR='sb'
 
 echo 'eval "$(rbenv init -)"'
+
+#http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
+zstyle ':completion:*' special-dirs true
