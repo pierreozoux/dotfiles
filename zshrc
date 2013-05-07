@@ -54,3 +54,6 @@ echo 'eval "$(rbenv init -)"'
 
 #http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
+
+alias ll='ls -lah'
+
