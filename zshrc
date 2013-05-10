@@ -57,3 +57,4 @@ zstyle ':completion:*' special-dirs true
 
 alias ll='ls -lah'
 
+. /sw/bin/init.sh
