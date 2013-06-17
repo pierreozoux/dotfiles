@@ -59,3 +59,20 @@ zstyle ':completion:*' special-dirs true
 alias ll='ls -lah'
 
 . /sw/bin/init.sh
+
+# Add the ability to have Runmefile in your folder : 
+# Runmefile example here : https://gist.github.com/pierreozoux/5798032
+
+_within-runme-project() {
+  local check_dir=$PWD
+  if [ $check_dir != "/" ]; then
+    [ -f "$check_dir/Runmefile" ] && return
+  fi
+  false
+}
+
+function chpwd() {
+  if _within-runme-project; then
+    source ./Runmefile
+  fi
+}
