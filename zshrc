@@ -9,8 +9,8 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="PierreOzoux"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="sb ~/.zshrc"
+alias ohmyzsh="sb ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
