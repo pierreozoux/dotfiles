@@ -44,6 +44,17 @@ DISABLE_CORRECTION="true"
 plugins=(git brew gem knife osx per-directory-history rails3 ruby vagrant)
 # plugins=(git brew bundler gem knife osx per-directory-history rails3 ruby vagrant)
 
+function help() {
+  echo "tab - open the current directory in a new tab"
+  echo "pfd - return the path of the frontmost Finder window"
+  echo "pfs - return the current Finder selection"
+  echo "cdf - cd to the current Finder directory"
+  echo "pushdf - pushd to the current Finder directory"
+  echo "quick-look - Quick Look a specified file"
+  echo "man-preview - open a specified man page in Preview"
+  echo "trash - move a specified file to the Trash"
+}
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
