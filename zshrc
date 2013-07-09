@@ -41,7 +41,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem knife osx per-directory-history rails3 ruby vagrant)
+plugins=(git brew gem osx per-directory-history rails3 ruby vagrant)
 # plugins=(git brew bundler gem knife osx per-directory-history rails3 ruby vagrant)
 
 function help() {
@@ -53,6 +53,7 @@ function help() {
   echo "quick-look - Quick Look a specified file"
   echo "man-preview - open a specified man page in Preview"
   echo "trash - move a specified file to the Trash"
+  echo "zshconfig - configure zsh"
 }
 
 source $ZSH/oh-my-zsh.sh
@@ -61,6 +62,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
 
 export EDITOR='sb'
+export LC_CTYPE="UTF-8"
 
 echo 'eval "$(rbenv init -)"'
 
@@ -87,3 +89,7 @@ function chpwd() {
     source ./Runmefile
   fi
 }
+
+# Octopress not working with zsh
+# http://travisjeffery.com/b/2012/01/zshs-extended-glob-and-octopresss-new-post-script/
+alias rake="noglob rake"
