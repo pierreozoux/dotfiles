@@ -64,7 +64,7 @@ export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:
 export EDITOR='sb'
 export LC_CTYPE="UTF-8"
 
-echo 'eval "$(rbenv init -)"'
+eval "$(rbenv init - --no-rehash)"
 
 #http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
@@ -92,4 +92,8 @@ function chpwd() {
 
 # Octopress not working with zsh
 # http://travisjeffery.com/b/2012/01/zshs-extended-glob-and-octopresss-new-post-script/
-alias rake="noglob rake"
+alias rake="noglob bundle exec rake"
+
+export HOST=local.seedrs.com
+export DIRECT_HOST=local.seedrs.com
+
