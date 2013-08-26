@@ -71,8 +71,6 @@ zstyle ':completion:*' special-dirs true
 
 alias ll='ls -lah'
 
-. /sw/bin/init.sh
-
 # Add the ability to have Runmefile in your folder : 
 # Runmefile example here : https://gist.github.com/pierreozoux/5798032
 
