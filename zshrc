@@ -95,4 +95,4 @@ alias rake="noglob bundle exec rake"
 export HOST=local.seedrs.com
 export DIRECT_HOST=local.seedrs.com
 export GOPATH=$HOME/tools/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
