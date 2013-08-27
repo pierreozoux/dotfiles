@@ -41,7 +41,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem osx per-directory-history rails3 ruby vagrant)
+plugins=(git osx per-directory-history)
 # plugins=(git brew bundler gem knife osx per-directory-history rails3 ruby vagrant)
 
 function help() {
