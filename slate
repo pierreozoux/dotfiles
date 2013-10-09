@@ -74,25 +74,6 @@ alias app-terminal 'iTerm'
 # Bindings
 #--------------------------------------------------------------------
 
-
-# bind e:cmd,ctrl hint
-
-# bind g:cmd,ctrl grid padding:5 0:5,3
-
-bind u:ctrl ${third-left-top}
-bind j:ctrl ${third-left-middle}
-bind m:ctrl ${third-left-botom}
-
-bind i:ctrl ${third-middle-top}
-bind k:ctrl ${third-middle-middle}
-bind ,:ctrl ${third-middle-botom}
-
-bind o:ctrl ${third-right-top}
-bind l:ctrl ${third-right-middle}
-bind .:ctrl ${third-right-botom}
-
-
-
 bind f:ctrl ${full}
 bind g:ctrl ${third-left}
 
