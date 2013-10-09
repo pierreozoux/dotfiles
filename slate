@@ -10,10 +10,10 @@ config windowHintsSpreadSearchWidth 200
 config windowHintsSpreadSearchHeight 200
 
 # Easy helpers for long variable names...
-alias sox 0
-alias soy 0
-alias ssx 1920
-alias ssy 1080
+alias sox screenOriginX
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
 
 alias wox windowTopLeftX
 alias woy windowTopLeftY
