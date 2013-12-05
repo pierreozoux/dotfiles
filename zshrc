@@ -64,7 +64,8 @@ export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:
 export EDITOR='sb'
 export LC_CTYPE="UTF-8"
 
-eval "$(rbenv init - --no-rehash)"
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
