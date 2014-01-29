@@ -97,3 +97,4 @@ export HOST=local.seedrs.com
 export DIRECT_HOST=local.seedrs.com
 export GOPATH=$HOME/tools/go
 export PATH=$GOPATH/bin:$PATH
+alias scp="noglob scp" 
