@@ -78,8 +78,6 @@ bind f:ctrl ${full}
 bind g:ctrl ${third-left}
 
 #focus
-bind u:ctrl,cmd focus up
-bind j:ctrl,cmd focus down
 bind k:ctrl,cmd focus right
 bind h:ctrl,cmd focus left
 bind y:ctrl,cmd focus above
@@ -88,11 +86,8 @@ bind n:ctrl,cmd focus below
 bind m:ctrl,cmd focus below
 bind ,:ctrl,cmd focus below
 
-bind down:ctrl,cmd focus down
 bind left:ctrl,cmd focus left
 bind right:ctrl,cmd focus right
-bind up:ctrl,cmd focus up
-
 
 # Numpad location Bindings
 bind pad1:ctrl ${bot-left}
@@ -105,9 +100,9 @@ bind pad7:ctrl ${top-left}
 bind pad8:ctrl ${top-half}
 bind pad9:ctrl ${top-right}
 
-bind down:ctrl chain ${y-move1} | ${y-move2} | ${y-move3}
-bind left:ctrl chain ${x-move1} | ${x-move2} | ${x-move3}
-bind pad0:ctrl ${full}
-bind right:ctrl chain ${x-bigger1} | ${x-bigger2} | ${x-bigger3}
-bind up:ctrl chain ${y-bigger1} | ${y-bigger2} | ${y-bigger3}
+bind down:ctrl,alt chain ${y-move1} | ${y-move2} | ${y-move3}
+bind left:ctrl,alt chain ${x-move1} | ${x-move2} | ${x-move3}
+bind pad0:ctrl,alt ${full}
+bind right:ctrl,alt chain ${x-bigger1} | ${x-bigger2} | ${x-bigger3}
+bind up:ctrl,alt chain ${y-bigger1} | ${y-bigger2} | ${y-bigger3}
 
