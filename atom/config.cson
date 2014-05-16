@@ -1,0 +1,27 @@
+'editor':
+  'showInvisibles': true
+'core':
+  'themes': [
+    'solarized-dark-ui'
+    'solarized-light-syntax'
+  ]
+  'disabledPackages': [
+    'whitespace'
+  ]
+  'ignoredNames': [
+    '.git'
+    'log'
+    'tmp'
+  ]
+'exception-reporting':
+  'userId': '1f4b5d03-ca07-ef9b-f7ad-44852c041854'
+'release-notes':
+  'viewedVersion': '0.95.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '87a333c49587580659892f1cf2b6da8df74123f1'
+'whitespace':
+  'ignoreWhitespaceOnlyLines': true
+'autosave':
+  'enabled': true
