@@ -58,7 +58,8 @@ function help() {
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
+export GOPATH=$HOME/tools/go
+export PATH=/usr/local:/usr/local/bin:/usr/local/share/python:$GOPATH/bin:/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
 
 export EDITOR='sb'
 export LC_CTYPE="UTF-8"
@@ -94,6 +95,6 @@ alias rake="noglob bundle exec rake"
 
 export HOST=local.seedrs.com
 export DIRECT_HOST=local.seedrs.com
-export GOPATH=$HOME/tools/go
-export PATH=$GOPATH/bin:$PATH
-alias scp="noglob scp" 
+alias scp="noglob scp"
+alias ginstall="gem install --no-rdoc --no-ri"
+export SEEDRS_PATH=~/website/seedrs
