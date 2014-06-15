@@ -1,5 +1,6 @@
 'editor':
   'showInvisibles': true
+  'preferredLineLength': 120
 'core':
   'themes': [
     'solarized-dark-ui'
