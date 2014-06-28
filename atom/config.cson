@@ -8,6 +8,8 @@
   ]
   'disabledPackages': [
     'whitespace'
+    'tabs'
+    'tree-view'
   ]
   'ignoredNames': [
     '.git'
@@ -26,3 +28,9 @@
   'ignoreWhitespaceOnlyLines': true
 'autosave':
   'enabled': true
+'tabs':
+  'showIcons': true
+'tree-view':
+  'hideVcsIgnoredFiles': false
+  'hideIgnoredNames': false
+  'showOnRightSide': false
