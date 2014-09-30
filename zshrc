@@ -55,6 +55,10 @@ function help() {
   echo "zshconfig - configure zsh"
 }
 
+function genpasswd() {
+  openssl rand -base64 32
+}
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
