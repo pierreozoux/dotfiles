@@ -3,30 +3,28 @@ Minimap = require '../lib/minimap'
 
 describe "Minimap", ->
   beforeEach ->
-    atom.config.set 'editor.useReactEditor', false
-    
-    runs ->
-      atom.workspaceView = new WorkspaceView
-      atom.workspaceView.openSync('sample.js')
 
     runs ->
-      atom.workspaceView.attachToDom()
+      atom.workspaceView = new WorkspaceView
+      atom.config.set 'minimap.autoToggle', true
+
+    waitsForPromise ->
+      atom.workspaceView.open('sample.js')
+
+    runs ->
+      atom.workspaceView.simulateDomAttachment()
       editorView = atom.workspaceView.getActiveView()
 
   describe "when the minimap:toggle event is triggered", ->
     beforeEach ->
-      waitsForPromise ->
-        promise = atom.packages.activatePackage('minimap')
-        expect(atom.workspaceView.find('.minimap')).not.toExist()
-        atom.workspaceView.trigger 'minimap:toggle'
-        promise
+      waitsForPromise -> atom.packages.activatePackage('minimap')
 
     it "attaches and then detaches the view", ->
-      expect(atom.workspaceView.find('.minimap')).toExist()
-      atom.workspaceView.trigger 'minimap:toggle'
       expect(atom.workspaceView.find('.minimap')).not.toExist()
+      atom.workspaceView.trigger 'minimap:toggle'
+      expect(atom.workspaceView.find('.minimap')).toExist()
 
     it 'decorates the pane view with a with-minimap class', ->
-      expect(atom.workspaceView.find('.pane.with-minimap').length).toEqual(1)
-      atom.workspaceView.trigger 'minimap:toggle'
       expect(atom.workspaceView.find('.pane.with-minimap').length).toEqual(0)
+      atom.workspaceView.trigger 'minimap:toggle'
+      expect(atom.workspaceView.find('.pane.with-minimap').length).toEqual(1)

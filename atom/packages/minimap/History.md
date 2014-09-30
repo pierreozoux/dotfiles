@@ -1,12 +1,133 @@
-1.4.0 / 2014-06-27
+3.1.1 / 2014-09-24
 ==================
 
-* prevent access to undefined lines in updates, fix #95
+* add config observers for editor settings that affect the minimap display
+* fix various leak with config observers
+* fix missing render view event dispatch on settings change
+
+3.1.0 / 2014-09-22
+==================
+
+* add command to generate a plugin package
+* fix remaining deprecated calls
+* update documentation with old wiki pages
+* set autoToggle true by default
+* replace lineHeight by interline in settings
+
+3.0.3 / 2014-09-19
+==================
+
+* fix issue with renamed event in Atom nightly
+
+3.0.2 / 2014-09-19
+==================
+
+* fix the case where the minimap is positioned incorrectly when a user style alters the tab bar height
+
+3.0.1 / 2014-09-19
+==================
+
+* fix bug with text drawing when charWidth != 1
+
+3.0.0 / 2014-09-19
+==================
+
+* :racehorse: improved performances by switching to a canvas-based rendering
+* :sparkles: add decoration API using the same interface than the Atom one
+* implements a new event model based on the Atom one. Previous events re now deprecated.
+* add new API documentation availaible at http://fangduncai.com/atom-minimap/
+
+2.3.3 / 2014-08-27
+==================
+
+* handle properly the changes in the atom editors classes
+
+2.3.2 / 2014-08-22
+==================
+
+* re-enable the minimap to work with legacy EditorView class
+
+2.3.1 / 2014-08-19
+==================
+
+* fix a bug with removeAtKeyPath method in tests
+
+2.3.0 / 2014-08-19
+==================
+
+* add a setting to completely turn off the plugin controls from the minimap settings.
+* add a new entry in the quick settings dropdown to toggle the minimap highlights on a per-editor basis.
+
+
+2.2.2 / 2014-08-17
+==================
+
+* fix a whitespace issue with Redacted font
+
+
+2.2.1 / 2014-08-17
+==================
+
+* fix error raised when tokenized line doesn't have an `invisibles` property
+
+
+2.2.0 / 2014-08-17
+==================
+
+* add option to toggle code highlights in the minimap
+
+2.1.1 / 2014-08-17
+==================
+
+* fix minimap editor background hiding the underlayer
+
+2.1.0 / 2014-08-17
+==================
+
+* add a quick access dropdown to toggle activation of minimap plugins
+
+2.0.0 / 2014-08-16
+==================
+
+* remove the use of css scaling to render the minimap
+* add new API allowing to replace an `EditorView` with a `MinimapView` for screen position computation in plugins that need to display markers over the minimap
+* add click-then-drag support on the minimap *track*
+* fix broken minimap in atom v0.123.0
+* fix broken tests
+
+1.6.0 / 2014-07-09
+==================
+
+* add a `Use Hardware Acceleration` option that allow to choose between `translate` or `translate3d` for the minimap scroll offset
+* fix a weird rendering issue where many update of the minimap were done with various offset
+
+1.5.2 / 2014-07-09
+==================
+
+* fix an unexpected offset on the right side of the editor contents
+
+1.5.1 / 2014-07-09
+==================
+
+* fix with-minimap decoration removed on tab change when react editor is enabled
+* fix pane styles with minimap and react editor enabled
+* fix minimap line-height with react editor enabled
+* fix error raised when closing the last tab in a pane
+
+1.5.0 / 2014-07-07
+==================
+
+* add support for react editor mode
+
+1.4.0 / 2014-06-28
+==================
+
+* fix error on line classlist access
 
 1.3.0 / 2014-05-21
 ==================
 
-* fix broken minimap when `useReactEditor` is enabled 
+* fix broken minimap when `useReactEditor` is enabled
 * 🐎  remove forced hardware acceleration on minimap
 
 1.2.0 / 2014-05-20
@@ -38,8 +159,8 @@
 * minimap views are now created for each editor and not for each pane
 * add a `eachMinimapView` subscription method in `Minimap` class
 * add a view aware minimap rendering, it speeds up rendering and updates for large files
-* add delegation of `MinimapEditorView` methods in `MinimapView`, allowing to manipulate most of its API directory from a minimap view
-* add a lines API on `MinimapEditorView` allowing to decorates lines with classes even when they are not rendered yet
+* add delegation of `MinimapRenderView` methods in `MinimapView`, allowing to manipulate most of its API directory from a minimap view
+* add a lines API on `MinimapRenderView` allowing to decorates lines with classes even when they are not rendered yet
 
 
 0.10.0 / 2014-05-11

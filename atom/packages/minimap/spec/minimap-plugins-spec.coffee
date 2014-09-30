@@ -5,13 +5,16 @@ describe "Minimap Plugins", ->
   beforeEach ->
     runs ->
       atom.workspaceView = new WorkspaceView
-      atom.workspaceView.openSync('sample.js')
+
+    waitsForPromise ->
+      atom.workspaceView.open('sample.js')
 
     runs ->
-      atom.workspaceView.attachToDom()
+      atom.workspaceView.simulateDomAttachment()
       editorView = atom.workspaceView.getActiveView()
 
-    atom.config.set 'minimap.plugins.dummy', undefined
+      atom.config.set 'minimap.displayPluginsControls', true
+      atom.config.set 'minimap.plugins.dummy', undefined
 
     @plugin =
       active: false
@@ -28,7 +31,7 @@ describe "Minimap Plugins", ->
   describe 'registered before activation', ->
 
     beforeEach ->
-      Minimap.on 'plugin:added', @registerHandler
+      Minimap.onDidAddPlugin @registerHandler
       Minimap.registerPlugin 'dummy', @plugin
 
     it 'should be available in the minimap', ->
@@ -83,7 +86,7 @@ describe "Minimap Plugins", ->
         atom.config.set 'minimap.plugins.dummy', false
 
       it 'should have received a deactivation call', ->
-          expect(@plugin.deactivatePlugin).toHaveBeenCalled()
+        expect(@plugin.deactivatePlugin).toHaveBeenCalled()
 
   describe 'on minimap activation', ->
     beforeEach ->

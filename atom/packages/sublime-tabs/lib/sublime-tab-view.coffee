@@ -1,14 +1,17 @@
-{$} = require 'atom'
-_ = require 'underscore-plus'
-path = require 'path'
-TabView = require atom.packages.resolvePackagePath('tabs') + '/lib/tab-view'
+_       = require 'underscore-plus'
+path    = require 'path'
+{$}     = require 'atom'
+TabView = require './tabs/tab-view'
 
 module.exports =
 class SublimeTabView extends TabView
 
-  initialize: (@item, @pane, openPermanent=[]) ->
+  initialize: (@item, @pane, openPermanent=[], considerTemporary) ->
     super(@item, @pane)
-    if @item.constructor.name is 'Editor'
+    return unless considerTemporary
+
+    if @item.constructor.name is 'Editor' ||
+       @item.constructor.name is 'ImageEditor'
       if @item.getPath() in openPermanent
         _.remove(openPermanent, @item.getPath())
       else
@@ -17,13 +20,8 @@ class SublimeTabView extends TabView
     atom.workspaceView.command 'sublime-tabs:keep-tab', => @keepTab()
 
   updateModifiedStatus: ->
-    if @item.isModified?()
-      @addClass('modified') unless @isModified
-      @removeClass('temp') if @is('.temp')
-      @isModified = true
-    else
-      @removeClass('modified') if @isModified
-      @isModified = false
+    super()
+    @removeClass('temp') if @is('.temp') and @item.isModified?()
 
   keepTab: ->
     @removeClass('temp') if @is('.temp')

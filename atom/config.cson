@@ -1,11 +1,11 @@
 'editor':
   'showInvisibles': true
   'preferredLineLength': 120
+  'fontSize': 18
+  'softWrap': true
+  'softWrapAtPreferredLineLength': true
+  'invisibles': {}
 'core':
-  'themes': [
-    'solarized-dark-ui'
-    'solarized-light-syntax'
-  ]
   'disabledPackages': [
     'whitespace'
     'tabs'
@@ -15,6 +15,10 @@
     '.git'
     'log'
     'tmp'
+  ]
+  'themes': [
+    'solarized-light-ui'
+    'solarized-light-syntax'
   ]
 'exception-reporting':
   'userId': '1f4b5d03-ca07-ef9b-f7ad-44852c041854'
@@ -34,3 +38,4 @@
   'hideVcsIgnoredFiles': false
   'hideIgnoredNames': false
   'showOnRightSide': false
+'markdown-preview': {}

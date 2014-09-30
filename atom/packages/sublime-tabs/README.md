@@ -7,6 +7,10 @@ Normally, the Tabs package will open a new tab for each file, and it will stay o
 sublime-tabs enables you to click a file through the Tree View on the left, it will open it as a "temp" file like sublime does,
 and will close the tab if another tab is opened without you editing it.
 
+[![Build Status](https://travis-ci.org/ddavison/sublime-tabs.svg?branch=master)](https://travis-ci.org/ddavison/sublime-tabs)
+[![star this repo](http://github-svg-buttons.herokuapp.com/star.svg?user=ddavison&repo=sublime-tabs)](http://github.com/ddavison/sublime-tabs)
+[![fork this repo](http://github-svg-buttons.herokuapp.com/fork.svg?user=ddavison&repo=sublime-tabs)](http://github.com/ddavison/sublime-tabs/fork)
+
 ![example](https://raw.githubusercontent.com/ddavison/sublime-tabs/master/images/example.gif)
 
 ## To Use
@@ -14,9 +18,7 @@ Install either through the Atom package search, or by:
 ```sh
 $ apm install sublime-tabs
 ```
-
-This is a replacement for the `Tabs` and `Tree View` package.  Open your Settings, and disable both the `Tabs` and `Tree View` package by searching for it and clicking "Disable" on them.
-If you don't do this, you will see multiple tree or tab views.
+**Note...** This package will replace the `Tabs` and `Tree View` package and disable them.  
 
 ## If for some reason...
 sublime-tabs is not working... try:
@@ -27,5 +29,10 @@ sublime-tabs is not working... try:
 * Right click somewhere in an open file, and click `Reveal in tree view`
 
 ## Uninstall
-This is an early version, so it *may* screw things up.  If it does, you can re-enable `Tabs` and `Tree View`, and disable `sublime-tabs`.
+If sublime-tabs isn't your thing, you can uninstall by following these steps:
 
+1. Open your Settings
+2. Search for `"Sublime Tabs"` and Uninstall
+3. For the `Tabs` and `Tree View` packages, do the following:
+  1. Search for the package
+  2. Click `"Enable"`
