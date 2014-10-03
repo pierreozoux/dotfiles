@@ -59,7 +59,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export GOPATH=$HOME/tools/go
-export PATH=/usr/local:/usr/local/bin:/usr/local/share/python:$GOPATH/bin:/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
+export PATH=/usr/local:/usr/local/bin:$GOPATH/bin:/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
 
 export EDITOR='sb'
 export LC_CTYPE="UTF-8"
