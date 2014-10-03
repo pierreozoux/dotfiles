@@ -1,6 +1,6 @@
 [user]
 	name = pierreozoux
-	email = pierre.ozoux@seedrs.com
+	email = pierre@ozoux.net
 [core]
 	excludesfile = /Users/PierreOzoux/.gitignore_global
 	editor = atom --wait
@@ -19,3 +19,5 @@
 	gcwarning = false
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status -s
+	a = add -A%
