@@ -97,8 +97,5 @@ function chpwd() {
 # http://travisjeffery.com/b/2012/01/zshs-extended-glob-and-octopresss-new-post-script/
 alias rake="noglob bundle exec rake"
 
-export HOST=local.seedrs.com
-export DIRECT_HOST=local.seedrs.com
 alias scp="noglob scp"
 alias ginstall="gem install --no-rdoc --no-ri"
-export SEEDRS_PATH=~/website/seedrs
