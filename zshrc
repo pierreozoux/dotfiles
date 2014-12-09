@@ -9,8 +9,8 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="PierreOzoux"
 
 # Example aliases
-alias zshconfig="sb ~/.zshrc"
-alias ohmyzsh="sb ~/.oh-my-zsh"
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/tools/go
 export PATH=/usr/local:/usr/local/bin:$GOPATH/bin:/Users/PierreOzoux/.rbenv/shims:/Users/PierreOzoux/.rbenv/bin:$PATH:/usr/local/sbin:/opt/X11/bin:/usr/X11/bin:/Users/PierreOzoux/bin
 
-export EDITOR='sb'
+export EDITOR="vi"
 export LC_CTYPE="UTF-8"
 
 export RBENV_ROOT=/usr/local/var/rbenv
