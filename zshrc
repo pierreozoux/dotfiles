@@ -39,6 +39,20 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="vi"
 export LC_CTYPE="UTF-8"
 
+export NAMECHEAP_URL="sandbox.namecheap.com"
+export NAMECHEAP_API_USER="pierreozoux"
+export NAMECHEAP_API_KEY=`cat ~/.NAMECHEAP_API_KEY`
+export IP=`curl -s http://icanhazip.com/`
+export FirstName="Pierre"
+export LastName="Ozoux"
+export Address="streetblah"
+export PostalCode="1100-000"
+export Country="Portugal"
+export Phone="+351.123456789"
+export EmailAddress="pierre@ozoux.net"
+export City="Lisbon"
+export CountryCode="PT"
+
 #http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
