@@ -1,3 +1,4 @@
+:filetype plugin on
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 if executable('ag')
   " Use Ag over Grep
