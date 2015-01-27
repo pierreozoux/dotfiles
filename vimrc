@@ -7,3 +7,16 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" tab navigation like firefox
+set showtabline=2               " File tabs allways visible
+:nmap <C-S-h> :tabprevious<cr>
+:nmap <C-l> :tabnext<cr>
+:map <C-S-h> :tabprevious<cr>
+:map <C-l> :tabnext<cr>
+:imap <C-S-h> <ESC>:tabprevious<cr>i
+:imap <C-l> <ESC>:tabnext<cr>i
+:nmap <C-t> :tabnew<cr>
+:map <C-t> :tabnew<cr>
+:imap <C-t> <ESC>:tabnew<cr>
+:map <C-w> :tabclose<cr>
+
