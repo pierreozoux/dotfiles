@@ -43,6 +43,7 @@ export LC_ALL=C
 export NAMECHEAP_URL="sandbox.namecheap.com"
 export NAMECHEAP_API_USER="pierreozoux"
 export NAMECHEAP_API_KEY=`cat ~/.NAMECHEAP_API_KEY`
+export VULTR_API_KEY=`cat ~/.VULTR_API_KEY`
 export IP=`curl -s http://icanhazip.com/`
 export FirstName="Pierre"
 export LastName="Ozoux"
