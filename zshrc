@@ -58,3 +58,4 @@ export CountryCode="PT"
 zstyle ':completion:*' special-dirs true
 
 alias ll='ls -lah'
+
