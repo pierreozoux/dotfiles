@@ -38,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export EDITOR="vi"
 export LC_CTYPE="UTF-8"
+export LC_ALL=C
 
 export NAMECHEAP_URL="sandbox.namecheap.com"
 export NAMECHEAP_API_USER="pierreozoux"
