@@ -54,6 +54,12 @@ export EmailAddress="pierre@ozoux.net"
 export City="Lisbon"
 export CountryCode="PT"
 
+# PATH
+export PATH="$PATH:$HOME/npm/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 #http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
 zstyle ':completion:*' special-dirs true
 
