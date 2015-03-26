@@ -21,3 +21,4 @@ set showtabline=2               " File tabs allways visible
 :imap <C-t> <ESC>:tabnew<cr>
 :map <C-w> :tabclose<cr>
 
+set relativenumber
