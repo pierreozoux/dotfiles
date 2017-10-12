@@ -12,7 +12,7 @@ DEFAULT_USER="pierre"
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
-plugins=(git per-directory-history env)
+plugins=(aws git kubectl per-directory-history env)
 
 function help() {
   echo "trash - move a specified file to the Trash"
