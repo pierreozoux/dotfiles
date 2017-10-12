@@ -31,6 +31,20 @@ set showtabline=2               " File tabs allways visible
 set relativenumber
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 set encoding=utf8
-set exrc
+"set exrc
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+"inoremap jj <Esc>
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"map <C-n> :NERDTreeToggle<CR>
+
+"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+"set laststatus=2
+"set t_Co=256
