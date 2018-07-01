@@ -1,4 +1,9 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
