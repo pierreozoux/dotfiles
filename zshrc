@@ -8,22 +8,38 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 DEFAULT_USER="pierre"
 
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
 plugins=(aws git kubectl per-directory-history env)
 
+_append_to_path() {
+  if [ -d $1 -a -z ${path[(r)$1]} ]; then
+    path=($path $1);
+  fi
+}
+
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
+serve() {
+  docker-compose -f ~/f/pierreozoux/serve/docker-compose.yml --project-directory . up -d \
+  && xdg-open http://localhost \
+  && docker-compose -f ../serve/docker-compose.yml --project-directory . logs -f;
+  docker-compose -f ../serve/docker-compose.yml --project-directory . rm -s -f
+}
+
 function help() {
   echo "trash - move a specified file to the Trash"
   echo "zshconfig - configure zsh"
   echo "awesomeconfig"
+  echo "od - open new terminal with same directory"
 }
 
-source ~/.OC
-
 function desktop() {
-  xrandr --output DP-3 --mode 2560x1440
+  #xrandr --output DP-1 --mode 2560x1440
+  xrandr --output VGA-1 --mode 1024x768
   xrandr --output LVDS-1 --off
 }
 
@@ -31,6 +47,7 @@ function laptop() {
   xrandr --output LVDS-1 --mode 1600x900
   xrandr --output VGA-1 --off
   xrandr --output DP-3 --off
+  xrandr --output DP-1 --off
 }
 
 function beamer() {
@@ -70,9 +87,11 @@ function screenshot() {
   curl -s -k -u $OC_USER:$OC_PASS -T $filepath $oc_webdav/ScreenShots/$basename
   #share ScreenShots/$basename | xclip -sel clip
 }
+
 function beep() {
   paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
 }
+
 function gif() {
 	DELAY=5
   TIME=`date +%d-%m-%y-%H:%M`
@@ -91,7 +110,7 @@ function gif() {
 }
 
 function genpasswd() {
-  openssl rand -base64 18 | xclip
+  openssl rand -base64 18
 }
 
 source $ZSH/oh-my-zsh.sh
@@ -114,6 +133,7 @@ export PATH=~/.local/bin:$PATH
 zstyle ':completion:*' special-dirs true
 
 alias ll='ls -lah'
+alias k='kubectl'
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias zshconfig="vi ~/.zshrc && reload"
 alias awesomeconfig="vi .config/awesome/rc.lua && echo 'awesome.restart()' | awesome-client"
@@ -125,47 +145,40 @@ alias reveal="docker run --rm --name node4 -v "$PWD":/usr/src/app -w /usr/src/ap
 alias nginx="docker run --rm --name nginx -v "$PWD":/usr/share/nginx/html:ro -p 8000:80 nginx"
 alias firefox="/home/pierre/.local/share/umake/web/firefox-dev/firefox"
 alias wifi=nmtui
+alias od="gnome-terminal --working-directory=${PWD}"
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+function kubectl() {
+  /usr/local/bin/kubectl -n ${NAMESPACE} --context=${CONTEXT} $@
+}
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /home/pierre/google-cloud-sdk/path.zsh.inc ]; then
-  source '/home/pierre/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /home/pierre/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/home/pierre/google-cloud-sdk/completion.zsh.inc'
-fi
+function helm() {
+  /usr/local/bin/helm --kube-context ${CONTEXT} $@
+}
 
 function aws_profile () {
-  if [ -n "$AWS_PROFILE" ];then 
+  if [ -n "$AWS_PROFILE" ];then
     echo "<${AWS_PROFILE}>"
   fi
 }
 
 function current_k8s_context () {
-  if [ -n "$AWS_PROFILE" ];then 
-    local context=`kubectl config current-context`
-    if [ "$context" != "devnull" ]; then
-      echo "<${context}>"
-    fi
+  if [ -n "$CONTEXT" ];then
+    echo "<${CONTEXT}>"
+  fi
+}
+
+function current_k8s_namespace () {
+  if [ -n "$NAMESPACE" ];then
+    echo "<${NAMESPACE}>"
   fi
 }
 
 #kubectl config use-context devnull > /dev/null
-RPROMPT='$FG[055]$(current_k8s_context)$FG[003]$(aws_profile)%{$reset_color%}'
-eval `ssh-agent -s`
-ssh-add ~/.ssh/id_rsa
+RPROMPT='$FG[037]$(current_k8s_namespace)$FG[055]$(current_k8s_context)$FG[003]$(aws_profile)%{$reset_color%}'
 
 if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
   source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
-
-function aws_profile () {
-  echo ${AWS_PROFILE}
-}
 
 function gpg_cred () {
   touch /tmp/to_sign
@@ -175,3 +188,36 @@ function gpg_cred () {
   gpg -u C4C975ABCA42CAE13B2B96E128F13D21466A44FD --output /tmp/to_sign2.sig --sign /tmp/to_sign
   rm /tmp/to_sign.sig /tmp/to_sign /tmp/to_sign2.sig
 } 
+
+
+# fzf via local installation
+if [ -e ~/.fzf ]; then
+  _append_to_path ~/.fzf/bin
+  source ~/.fzf/shell/key-bindings.zsh
+  source ~/.fzf/shell/completion.zsh
+fi
+
+# fzf + ag configuration
+if _has fzf && _has ag; then
+  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='
+  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
+  --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+  '
+fi
+
+eval "$(hub alias -s)"
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
+export GEM_PATH=/home/pierre/.gem
+export GEM_HOME=/home/pierre/.gem
+_append_to_path $GEM_HOME
+
+#export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible.vault
+#export AWS_DEFAULT_REGION="us-east-1"
+#export AWS_PROFILE
+export NAMESPACE=default
+export CONTEXT=standard
