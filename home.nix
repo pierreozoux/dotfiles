@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.homeDirectory =
@@ -28,6 +28,10 @@
       plugins = [ "git" "kubectl" "kube-ps1" ];
     };
     initContent = builtins.readFile ./zshrc;
+    # ~/.zprofile on mac: Homebrew shellenv
+    profileExtra = lib.optionalString pkgs.stdenv.isDarwin ''
+      [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
   };
 
   home.file.".vimrc".source = ./vimrc;

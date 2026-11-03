@@ -10,6 +10,10 @@ Prompt: `➜  folder git:(branch) ✗` on the left, `(⎈|kube-context:namespace
 
        curl -fsSL https://install.determinate.systems/nix | sh -s -- install
 
+   Optional, for GUI apps (`~/.zprofile` loads `brew shellenv`):
+
+       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 2. Clone and apply (open a new terminal first). `-b backup` renames existing `~/.zshrc` etc. to `*.backup`:
 
        git clone https://github.com/pierreozoux/dotfiles.git ~/dotfiles
