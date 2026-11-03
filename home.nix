@@ -36,4 +36,5 @@
 
   home.file.".vimrc".source = ./vimrc;
   home.file.".gitconfig".source = ./gitconfig;
+  home.file.".aerospace.toml" = lib.mkIf pkgs.stdenv.isDarwin { source = ./aerospace.toml; };
 }
