@@ -2,26 +2,18 @@
 	name = pierreozoux
 	email = pierre@ozoux.net
 [core]
-	excludesfile = /Users/PierreOzoux/.gitignore_global
-	editor = vi
+	editor = vim
 	autocrlf = input
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[init]
+	defaultBranch = main
 [push]
 	default = simple
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[gui]
-	gcwarning = false
+[pull]
+	rebase = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	s = status -s
-	a = add -A%
+	a = add -A
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
