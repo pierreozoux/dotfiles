@@ -37,4 +37,9 @@
   home.file.".vimrc".source = ./vimrc;
   home.file.".gitconfig".source = ./gitconfig;
   home.file.".aerospace.toml" = lib.mkIf pkgs.stdenv.isDarwin { source = ./aerospace.toml; };
+
+  # Follows the system light/dark appearance
+  xdg.configFile."ghostty/config".text = ''
+    theme = light:iTerm2 Solarized Light,dark:iTerm2 Solarized Dark
+  '';
 }
